@@ -1,0 +1,27 @@
+{
+  "name": "ac_shorturl_v1.1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eruc1117/eruc1117-ac_shortURL_V1.1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eruc1117/eruc1117-ac_shortURL_V1.1/issues"
+  },
+  "homepage": "https://github.com/eruc1117/eruc1117-ac_shortURL_V1.1#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^6.1.7"
+  }
+}
