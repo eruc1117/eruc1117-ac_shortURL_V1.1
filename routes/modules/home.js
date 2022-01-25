@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 router.get('/:random', (req, res) => {
   let shortUrl = `http://localhost:3000/${req.params.random}`
-  shortUrlModule.findOne({ shortUrl: shortUrl }, function (err, result) {
+  shortUrlModule.findOne({ shortUrl }, function (err, result) {
     if (err) { console.log('err') }
     if (result) {//資料庫有搜索到資料，將網頁導向原始頁面
       let fullUrl = result.fullUrl
