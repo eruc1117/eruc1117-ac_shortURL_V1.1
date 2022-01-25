@@ -48,3 +48,9 @@ npm run seed
 nodemon app.js
 ```
 將terminal顯示的localhost:3000貼到網頁上執行
+
+## Running the tests
+![image](home_page.png)
+![image](create_end.png)
+
+
