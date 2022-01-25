@@ -5,10 +5,12 @@ const port = 3000
 const bodyParser = require('body-parser')
 const shortUrlModule = require('./modules/shortUrlModule')
 
+app.use(express.static('public'))
 app.engine('handlebars', exhbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 require('./config/mongoose')
 app.use(bodyParser.urlencoded({ extended: true }))
+
 
 app.get('/', (req, res) => {
   res.render('index')
@@ -36,7 +38,7 @@ app.get('/:random', (req, res) => {
   shortUrlModule.findOne({ shortUrl: shortUrl }, function (err, result) {
     if (err) { console.log('err') }
     if (result) {
-      let fullUrl = result.fullUrl//這邊直接用有安全問題，handlebars會擋
+      let fullUrl = result.fullUrl
       res.redirect(fullUrl)
     } else {
       res.render('index', { noResult: true })
