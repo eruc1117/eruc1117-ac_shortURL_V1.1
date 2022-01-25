@@ -20,19 +20,28 @@ app.post('/create/short', (req, res) => {
   shortUrlModule.findOne({ fullUrl: fullUrl }, function (err, result) {
     if (err) { console.log('err') }
     if (result) {
-      let shortUrl = result.shortUrl
+      let shortUrl = result.shortUrl//這邊直接用有安全問題，handlebars會擋
       res.render('createEnd', { shortUrl })
     } else {
       let randomNum = Math.random().toString(36).replace(/\.+/g, '').substring(1, 6)
-      let shortUrl = `http://shortUrl/${randomNum}`
+      let shortUrl = `http://localhost:3000/${randomNum}`
       shortUrlModule.create({ fullUrl, shortUrl })
       res.render('createEnd', { shortUrl })
     }
   })
 })
 
-app.get('http://ldddd', (req, res) => {
-  res.send('https://tw.yahoo.com/')
+app.get('/:random', (req, res) => {
+  let shortUrl = `http://localhost:3000/${req.params.random}`
+  shortUrlModule.findOne({ shortUrl: shortUrl }, function (err, result) {
+    if (err) { console.log('err') }
+    if (result) {
+      let fullUrl = result.fullUrl//這邊直接用有安全問題，handlebars會擋
+      res.redirect(fullUrl)
+    } else {
+      res.render('index', { noResult: true })
+    }
+  })
 })
 
 

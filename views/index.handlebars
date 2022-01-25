@@ -4,6 +4,9 @@
   <form action="/create/short" method="post">
     <div class="card-body">
       <div class="d-flex flex-column">
+        {{#if noResult}}
+        <div class="text-danger">輸入的短網址尚未建立</div>
+        {{/if}}
         <label for="fullUrl">Full URL </label>
         <input id="fullUrl" type="text" name="fullUrl" placeholder="請輸入原始網址" required></input>
         <button type="submit" class="btn btn-primary btn-sm w-50 mx-auto mt-2">Create</button>
