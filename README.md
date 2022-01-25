@@ -19,7 +19,7 @@ MongoDB
 ```
 開啟終端機(Terminal)，cd到存放專案本機位置並執行
 ```
-git clone https://github.com/eruc1117/ac_restaurant_list_V1.1.git
+git clone https://github.com/eruc1117/eruc1117-ac_shortURL_V1.1.git
 ```
 下載專案後再次cd到ac_restaurant_list，再往下進行
 express 安裝步驟
@@ -31,7 +31,7 @@ npm i express
 ```
 安裝 express handlebars
 ```
-npm i express-handlebars@6.0.2 
+npm i express-handlebars@3.0.0 
 ```
 確認與MongoDB連線
 
