@@ -1,7 +1,7 @@
 {
   "name": "ac_shorturl_v1.1",
   "version": "1.0.0",
-  "description": "",
+  "description": "將網址轉為短網址，在伺服器運作期間可以導向原始頁面",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
@@ -23,6 +23,6 @@
     "body-parser": "^1.19.1",
     "express": "^4.17.2",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^6.1.7"
+    "mongoose": "^6.2.0"
   }
 }
