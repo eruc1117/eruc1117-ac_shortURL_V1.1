@@ -21,7 +21,7 @@ MongoDB
 ```
 git clone https://github.com/eruc1117/eruc1117-ac_shortURL_V1.1.git
 ```
-下載專案後再次cd到ac_restaurant_list，再往下進行
+下載專案後再次cd到eruc1117-ac_shortURL_V1.1，再往下進行
 express 安裝步驟
 ```
 npm init -y
