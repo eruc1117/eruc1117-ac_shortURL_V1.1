@@ -17,29 +17,21 @@ async function findFullUrl(fullUrl) {
 }
 
 async function findshortUrl(fullUrl) {
-  let result
   try {
-    result = await shortUrlModule.findOne({ fullUrl }).exec()
-    if (result !== null) { //當資料庫有資料時，直接回傳結果
-      return result
+    const fullUrlResult = await shortUrlModule.findOne({ fullUrl }).exec()
+    if (fullUrlResult !== null) { //當資料庫有資料時，直接回傳結果
+      return fullUrlResult
     } else { //資料庫沒有時，新建資料
-      const randomNum = Math.random().toString(36).replace(/\.+/g, '').substring(1, 6)
-      let shortUrl = `http://localhost:3000/${randomNum}`
-      try {
-        await shortUrlModule.create({ fullUrl, shortUrl })//測試是否重複或新建
-        return shortUrlModule.findOne({ shortUrl })//成功新建後將資料回傳
-      } catch {//如果有重複，出現錯誤訊息，重新產生一個shortUrl
-        let repeat = true //先設定重複判斷
-        let shortUrl = ``
-        while (repeat) {
-          const randomNum = Math.random().toString(36).replace(/\.+/g, '').substring(1, 6)
-          shortUrl += `http://localhost:3000/${randomNum}`
-          let result = await shortUrlModule.find({ shortUrl })//搜索資料庫
-          repeat = result.length >= 1 ? true : false //改變重複判斷
-        }
-        await shortUrlModule.create({ fullUrl, shortUrl })
-        return shortUrlModule.findOne({ shortUrl })
+      let repeat = true //先設定重複判斷
+      let shortUrl = ``
+      while (repeat) {
+        const randomNum = Math.random().toString(36).replace(/\.+/g, '').substring(1, 6)
+        shortUrl += `http://localhost:3000/${randomNum}`
+        let shortResult = await shortUrlModule.find({ shortUrl })//搜索資料庫
+        repeat = shortResult.length >= 1 ? true : false //改變重複判斷
       }
+      await shortUrlModule.create({ fullUrl, shortUrl })
+      return shortUrlModule.findOne({ shortUrl })
     }
   } catch {
     console.log('err')

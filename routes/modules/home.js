@@ -11,8 +11,7 @@ router.get('/:random', (req, res) => {
   shortUrlModule.findOne({ shortUrl }, function (err, result) {
     if (err) { console.log('err') }
     if (result) {//資料庫有搜索到資料，將網頁導向原始頁面
-      const fullUrl = result.fullUrl
-      res.redirect(fullUrl)
+      res.redirect(result.fullUrl)
     } else {//資料庫沒有資料，網頁重新導向首頁，並提示此短網址沒有製作過
       res.render('index', { noResult: true })
     }
