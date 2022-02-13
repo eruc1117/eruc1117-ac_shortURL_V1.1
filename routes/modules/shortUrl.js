@@ -28,8 +28,8 @@ async function findshortUrl(fullUrl) {
       await shortUrlModule.create({ fullUrl, shortUrl })
       return shortUrl
     }
-  } catch {
-    console.log('err')
+  } catch (err) {
+    console.log(err)
   }
 }
 
