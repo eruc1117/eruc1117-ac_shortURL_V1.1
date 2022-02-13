@@ -35,7 +35,6 @@ async function findshortUrl(fullUrl) {
       return shortUrl
     }
   } catch {
-    console.log('err')
   }
 }
 
