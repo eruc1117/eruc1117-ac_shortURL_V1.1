@@ -21,7 +21,7 @@ async function findshortUrl(fullUrl) {
       let shortUrl = ``
       while (repeat) {
         const randomNum = Math.random().toString(36).replace(/\.+/g, '').substring(1, 6)
-        shortUrl += `http://localhost:3000/${randomNum}`
+        shortUrl = `http://localhost:3000/${randomNum}`
         let shortResult = await shortUrlModule.findOne({ shortUrl })//搜索資料庫確認重複
         repeat = shortResult !== null //改變重複判斷
       }
